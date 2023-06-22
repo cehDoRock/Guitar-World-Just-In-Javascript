@@ -1,0 +1,54 @@
+
+.ContsRegister{
+    margin: 50px 200px;
+    background-color: rgba(75, 75, 75, 0.6);
+}
+.conts{
+
+    border: 2px solid black;
+   
+}
+.tabs{
+    display: flex;
+}
+.tabs button {
+    background-color: rgba(75, 75, 75, 0.6);
+    font-family: 'Metal Mania';
+    border: 2px solid rgb(255, 255, 255);
+    color: #ffffff;
+    cursor: pointer;
+    flex-grow: 1;
+    font-size: 1.25rem;
+    font-weight: bold;
+    outline: none;
+    padding: 10px;
+    text-transform: uppercase;
+    transition: all .5s;
+}
+.conts {
+    border: 2px solid rgb(0, 0, 0);
+    min-height: 300px;
+    padding: 20px;
+}
+.form1 {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.form1 input{
+    padding: 10px;
+    border: 2px solid rgb(0, 0, 0);
+}
+.form1 button{
+    font-family: 'Metal Mania';
+    padding: 10px;
+    background-color: rgb(104, 8, 164);
+    border:none;
+    outline: none;
+    color:white;
+    font-weight: bold;
+}
+
+.tabs .ativa{
+    background-image: linear-gradient(to left, black,rgb(104, 8, 164),rgb(0, 0, 0));
+}
