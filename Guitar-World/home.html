@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/home.css">
+    <link rel="stylesheet" href="assets/reset.css">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/cadastro.css">
+    <title>Guitar world</title>
+</head>
+<body>
+    <header id="header1">
+        <div class="cadastre">
+            <p ><a href="" id="ola">Cadastre-se</a></p>
+        </div>
+        <div class="apresentacao">
+            <h2 class="imagem"><img src="assets/img/logoblanco.png"></h2>
+            <h1>Guitar's shop</h1>
+        </div>
+    </header>
+    <main>
+    <div class="container">
+            <div class="abas">
+                <button  data-aba="homepage" data-open>Pagina inicial</button>
+                <button data-aba="catalogo">Catálogo</button>
+                <button data-aba="anunciar" id="anunc">Anunciar</button>
+                <button data-aba="config">Sua conta</button>                 
+                 <!-- <button>Contate-nos</button> -->
+            </div>
+        
+        <div class="conteudos">
+            <section data-conteudo="homepage" id="homepage">
+                <div id="content">
+                  
+                
+                    <p>Explore a incrível variedade de guitarras disponíveis na nossa loja online. Oferecemos uma seleção cuidadosamente escolhida das melhores marcas e modelos para atender às suas necessidades musicais.</p>
+                
+                    <img src="assets/img/caratocando.jpg" alt="Guitarra 1">
+                    <img src="assets/img/slash-gibson.jpg" alt="Guitarra 2">
+                
+                    <p>Combinando qualidade, estilo e excelência sonora, nossas guitarras são perfeitas tanto para músicos iniciantes quanto para profissionais experientes. Você encontrará instrumentos de alta qualidade que se adaptam a qualquer gênero musical.</p>
+                
+                    <p>Além disso, oferecemos preços competitivos e uma experiência de compra online segura e conveniente. Nossa equipe está pronta para ajudá-lo(a) a encontrar a guitarra perfeita e responder a todas as suas perguntas.</p>
+                
+                    <p>Comece a explorar nossa coleção agora e descubra a guitarra dos seus sonhos!</p>
+                  </div>
+            </section>
+            
+            <section data-conteudo="catalogo" id="catalogo">
+
+                <form id="pesquisaForm">
+                    <label>Pesquisar por Marca:</label>
+                    <input id="inputPesquisa" type="text" >
+                    <button id="pesquisar">Pesquisar</button>
+                    <button id="mostraTudo">Mostrar Todas</button>
+                </form>
+
+            <div class="catalogo">
+            </div>
+                
+            </section>
+
+            <section data-conteudo="anunciar" id="anunciar">
+                <div class="ContsRegister">
+                    <div class="tabs">
+                        <button>Venda sua Guitarra</button>
+                    </div>
+                    <div class="conts">
+                        <p id="otto" style="color: white">Insira as informações de sua guitarra</p>
+                        <form class="form1" id="formDeNovaGuitarra">
+                        
+                        <input id="nomeguit"="text" placeholder="Insira nome">
+                        <input id="precoguit" type="number" placeholder="Insira preço">
+                        <input id="marcaguit"type="text" placeholder="Insira marca">
+                        <input id="imgguit"type="text" placeholder="Incira imagem">
+                        <button id="cadastrarGuitarra">Cadastrar</button>
+                        <p id="tagPdaCriacao"></p>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section data-conteudo="config" id="config">
+                <div class="ContsRegister">
+                    <div class="tabs">
+                        <button id="toEnter">Entrar</button>
+                        <button id="registers">Cadastre-se</button>
+                    </div>
+                    <div class="conts" id="conts">
+                     <div id="enter">
+                        <form class="form1">
+                        <p id="problens">Insira Seus Cadastros</p>
+                        <input id="emailEn" type="email" name="email" placeholder="Digite seu email">
+                        <input  id="passworEn" type="password" name="senha" placeholder="Digite sua Senha">
+                        <button id="ent">Entrar</button>
+                        <p id="ola"></p>
+
+                        <button id="backout">Sair</button>
+                    </form>
+                </div>
+                <div id="register">
+                    <form class="form1">
+                        <input  id="nameId" type="text" name="nome" placeholder="Digite seu nome">
+                        <input id="emailId" type="email" name="email" placeholder="Digite seu email">
+                        <input  id="passwordId" type="password" name="senha" placeholder="Digite sua Senha">
+                        <button id="cad">Cadastrar</button>
+                        <p id="senhafraca">Senha fraca</p>
+                        <p id="criadaounao" class="right"></p>
+                </form>
+                </div>
+            </div>
+        </div>
+        <button id="controleDeDanos">Controle de dados</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <img src="assets/img/logoblanco.png">
+        <p class="copyright">
+           &copy; copyright Cecília Castro e José Vitor
+        </p>
+    </footer>
+    <script src="assets/script.js"></script>
+    <script src="assets/guit.js"></script>
+</body>
+</html>
