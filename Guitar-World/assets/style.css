@@ -81,3 +81,33 @@ footer .copyright {
     margin: 50px 200px;
     background-color: rgba(75, 75, 75, 0.6);
 }
+
+/* 
+ */
+ #usuarioNaoCadastrado {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  #usuarioNaoCadastrado img {
+    border-radius: 50%;
+    height: 100px;
+  }
+  
+  #usuarioNaoCadastrado h2 {
+    color: #8a2be2; /* Roxo escuro */
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  
+  #usuarioNaoCadastrado p {
+    color: #fff; /* Branco */
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  #usuarioNaoCadastrado {
+    background-color: #333; /* Cinza escuro */
+    padding: 20px;
+  }
+  

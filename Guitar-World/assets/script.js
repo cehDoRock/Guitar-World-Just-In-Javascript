@@ -370,10 +370,28 @@ function insertNewGuitar(){
         h4: "", 
         p: ""
     }
+
+function apareceOuNaoCadastroGuitarra(){
+var formDeGuitar = document.querySelector("#formDeNovaGuitarra");
+var anuncioDeVenda = document.querySelector("#usuarioNaoCadastrado");
+
+    if(userCad === true){
+        formDeGuitar.setAttribute("class" , "form1")
+        anuncioDeVenda.setAttribute("class" , "ride");
+    }else{
+        formDeGuitar.setAttribute("class" , "ride")
+        anuncioDeVenda.setAttribute("class" , "");
+    }
+}
+apareceOuNaoCadastroGuitarra();
+
+document.querySelector("#anunc").addEventListener("click" , ()=>{
+    apareceOuNaoCadastroGuitarra();
+})
 document.querySelector("#cadastrarGuitarra").addEventListener("click",(e)=>{
     e.preventDefault()
     p.setAttribute("class" , "ride")
-    if(userCad === true){
+    
     let name = document.querySelector("#nomeguit").value;
     let preco = document.querySelector("#precoguit").value;
     let marca = document.querySelector("#marcaguit").value;
@@ -401,10 +419,7 @@ document.querySelector("#cadastrarGuitarra").addEventListener("click",(e)=>{
         p.innerHTML = "Por favor insira todos os requisitos"
     }
     
-    }else{
-        p.setAttribute("class" , "wrong");
-        p.innerHTML = "Cadastre-se para inserir!"
-    }
+    
 
 }
 )}
