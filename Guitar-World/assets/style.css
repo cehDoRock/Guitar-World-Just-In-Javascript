@@ -111,3 +111,37 @@ footer .copyright {
     padding: 20px;
   }
   
+  .ContsRegister {
+    text-align: center;
+}
+
+.conts {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.rounded-image {
+    border-radius: 50%;
+}
+
+.column-wrapper {
+    column-count: 2;
+    column-gap: 20px;
+    display:flex;
+    margin-top: 20px;
+}
+
+.column {
+    display: inline-block;
+    width: 100%;
+}
+
+.conts h2{
+    
+    color: rgb(0, 0, 0);
+    font-family: 'Metal Mania';
+    font-size: 40px;
+    top: 40px;
+    right: 0;
+    
+}

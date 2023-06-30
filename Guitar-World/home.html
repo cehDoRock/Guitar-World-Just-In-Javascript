@@ -23,10 +23,10 @@
     <main>
     <div class="container">
             <div class="abas">
-                <button  data-aba="homepage">Pagina inicial</button>
+                <button  data-aba="homepage" data-open >Pagina inicial</button>
                 <button data-aba="catalogo">Catálogo</button>
-                <button data-aba="anunciar" data-open id="anunc">Anunciar</button>
-                <button data-aba="config">Sua conta</button>                 
+                <button data-aba="anunciar"  id="anunc">Anunciar</button>
+                <button data-aba="config"id="paralog">Sua conta</button>                 
                  <!-- <button>Contate-nos</button> -->
             </div>
         
@@ -37,7 +37,7 @@
                 
                     <p>Explore a incrível variedade de guitarras disponíveis na nossa loja online. Oferecemos uma seleção cuidadosamente escolhida das melhores marcas e modelos para atender às suas necessidades musicais.</p>
                 
-                    <img src="assets/img/caratocando.jpg" alt="Guitarra 1">
+                    <!-- <img src="assets/img/caratocando.jpg" alt="Guitarra 1"> -->
                     <img src="assets/img/slash-gibson.jpg" alt="Guitarra 2">
                 
                     <p>Combinando qualidade, estilo e excelência sonora, nossas guitarras são perfeitas tanto para músicos iniciantes quanto para profissionais experientes. Você encontrará instrumentos de alta qualidade que se adaptam a qualquer gênero musical.</p>
@@ -77,7 +77,7 @@
 
                         <form class="form1" id="formDeNovaGuitarra" >
                         <p id="otto" style="color: white">Insira as informações de sua guitarra</p>
-                        <input id="nomeguit"="text" placeholder="Insira nome">
+                        <input id="nomeguit"type="text" placeholder="Insira nome">
                         <input id="precoguit" type="number" placeholder="Insira preço">
                         <input id="marcaguit"type="text" placeholder="Insira marca">
                         <input id="imgguit"type="file" placeholder="Incira imagem">
@@ -89,7 +89,43 @@
             </section>
 
             <section data-conteudo="config" id="config">
-                <div class="ContsRegister">
+                <div id="um" class="ContsRegister">
+                    <div class="tabs">
+                        <button id="toEdit">Editar sua conta</button>
+                    </div>
+                    <div class="conts">
+                        <div id="divDeVisu">
+                            <div class="conts">
+                                <img src="assets/img/user.png" height="200px" class="rounded-image">
+                                <input type="file" class="ride" placeholder="Editar imagem">
+                                <h2>Nome</h2>
+                                <input type="text" id="name13" class="ride" placeholder="Editar nome">
+                                <div class="column-wrapper">
+                                    <div class="column">
+                                        <p id="email12">Email: exemplo@gmail.com</p>
+                                        <input id="email13" type="text" class="ride" placeholder="Editar email">
+                                        <p id="endereco12">Endereço: Rua Exemplo, 123</p>
+                                        <input id="adress13" type="text" class="ride" placeholder="Editar endereço">
+                                    </div>
+                                    <div class="column">
+                                        <p id="phone12">Telefone: (99) 9999-9999</p>
+                                        <input id="phone12" stype="text" class="ride" placeholder="Editar telefone">
+                                        <input  type="password" class="ride" placeholder="Editar senha">
+                                    </div>
+                                </div>
+                               
+                                <input type="password" class="ride" id="confirmInput" placeholder="Confirmar senha atual">
+                                <button id="alterarContaTrue" class="ride" >Confirmar</button>
+                                <button id="sairDoAlterarConta" class="ride">Sair de alterar conta</button>
+                                <button id="alterarConta">Alterar conta</button>
+                                <button id="backout">Sair</button>
+                                <p id="errorpassword"></p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="dois" class="ContsRegister">
                     <div class="tabs">
                         <button id="toEnter">Entrar</button>
                         <button id="registers">Cadastre-se</button>
@@ -101,15 +137,14 @@
                         <input id="emailEn" type="email" name="email" placeholder="Digite seu email">
                         <input  id="passworEn" type="password" name="senha" placeholder="Digite sua Senha">
                         <button id="ent">Entrar</button>
-                        <p id="ola"></p>
-
-                        <button id="backout">Sair</button>
                     </form>
                 </div>
                 <div id="register">
                     <form class="form1">
                         <input  id="nameId" type="text" name="nome" placeholder="Digite seu nome">
                         <input id="emailId" type="email" name="email" placeholder="Digite seu email">
+                        <input  id="adressId" type="text" name="adrees" placeholder="Digite seu endereço">
+                        <input  id="phoneId" type="text" name="telphone" placeholder="Digite seu número de telefone">
                         <input  id="passwordId" type="password" name="senha" placeholder="Digite sua Senha">
                         <button id="cad">Cadastrar</button>
                         <p id="senhafraca" class="red">Senha fraca</p>
@@ -132,6 +167,5 @@
         </p>
     </footer>
     <script src="assets/script.js"></script>
-    <script src="assets/guit.js"></script>
 </body>
 </html>

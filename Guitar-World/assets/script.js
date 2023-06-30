@@ -1,4 +1,4 @@
-
+var errorpassword = document.querySelector("#errorpassword");
 const $ = document.querySelector.bind(document);
 // tabela de pesquisa geral
 function tabNavigation(){
@@ -159,6 +159,40 @@ let arrayGuitars = [
 ]
 
 
+function visu(){
+    var uso = JSON.parse(localStorage.getItem("whUser"));
+    document.querySelector("#divDeVisu h2").innerHTML = uso.name;
+    console.log(JSON.parse(localStorage.getItem("whUser")))
+
+
+    var email = uso.email;
+    var [nome, dominio] = email.split("@");
+    var limiteMinimoCaracteres = 4;
+    if (nome.length > limiteMinimoCaracteres) {
+        nome = nome.substring(0, limiteMinimoCaracteres) + "****";
+    }
+    var emailMascarado = nome + "@" + dominio;
+
+    document.querySelector("#email12").innerHTML = `Email: ${emailMascarado}`;
+    var endereco = uso.adress;
+
+// Verificar se o endereço tem mais de 4 caracteres
+if (endereco.length > 4) {
+  endereco = endereco.substring(0, 4) + "*".repeat(endereco.length - 4);
+}
+document.querySelector("#endereco12").innerHTML = `Endereço: ${endereco}`;
+var telefone = uso.telphone;
+
+// Verificar se o telefone tem mais de 4 dígitos
+if (telefone.length > 4) {
+  telefone = telefone.substring(0, 4) + "*".repeat(telefone.length - 4);
+}
+
+document.querySelector("#phone12").innerHTML = `Telefone: ${telefone}`;
+
+   
+}
+
 const cat = document.querySelector(".catalogo");
 
 
@@ -230,10 +264,14 @@ document.querySelector("#pesquisar").addEventListener("click" , (e)=>{
 
     
 var users = []
+
+
 const user = {
-    name : "",
-    email : "",
-    password : ""
+    name: "",
+    email: "",
+    password: "",
+    adress: "",
+    telphone: ""
 };
 var password = document.querySelector("#passwordId")
 var senhafraca = document.querySelector("#senhafraca")
@@ -261,7 +299,8 @@ document.querySelector("#cad").addEventListener("click", (e)=>{
     var criadaounao = document.querySelector("#criadaounao")
     var name = document.querySelector("#nameId").value;
     var email = document.querySelector("#emailId").value;
-   
+    var adress = document.querySelector("#adressId").value;
+    var phone = document.querySelector("#phoneId").value;
 
     
 
@@ -275,6 +314,8 @@ document.querySelector("#cad").addEventListener("click", (e)=>{
     }
     user.name = name
     user.email = email
+    user.adress = adress
+    user.telphone = phone
     user.password = password.value
     users.push(user);
     localStorage.setItem("users",JSON.stringify(users));
@@ -287,9 +328,30 @@ document.querySelector("#cad").addEventListener("click", (e)=>{
 
 var whUser = {
     name: "",
-    email:""
+    email: "",
+    password: "",
+    adress: "",
+    telphone: ""
 }
 var userCad
+
+function logadoOuNao(){
+    var um = document.querySelector("#um");
+var dois = document.querySelector("#dois");
+
+if(userCad === true){
+    um.setAttribute("class" , "ContsRegister")
+    dois.setAttribute("class" , "ride");
+    visu();
+}else{
+    um.setAttribute("class" , "ride")
+    dois.setAttribute("class" , "ContsRegister");
+}
+
+
+}
+
+logadoOuNao()
 
 var rodadaPorSecao = 0;
 
@@ -324,7 +386,10 @@ document.querySelector("#ent").addEventListener("click", (e) => {
         if(emailEn === e.email && passwordEn === e.password){
             whUser = {
                 name: e.name,
-                email: e.email
+                email: e.email,
+                password: e.password,
+                adress: e.adress,
+                telphone: e.telphone
             }
             userCad = true;
             problens.innerHTML = "";
@@ -338,11 +403,15 @@ document.querySelector("#ent").addEventListener("click", (e) => {
             ola.innerHTML = "cadastre-se"
             problens.innerHTML = "Senha ou email inválidos!"
         }
-    }else{
-        problens.innerHTML = "usuario ja cadastrado";
     }
-    })
     
+    })
+    logadoOuNao()
+})
+
+
+document.querySelector("#paralog").addEventListener("click" , ()=>{
+    logadoOuNao();
 })
 document.querySelector("#controleDeDanos").addEventListener("click" , ()=> {
     localStorage.clear();
@@ -358,6 +427,7 @@ document.querySelector("#backout").addEventListener("click" , (e)=>{
     userCad = false;
     localStorage.setItem("whUser",JSON.stringify(whUser));
     localStorage.setItem("userCad",JSON.stringify(userCad));
+    logadoOuNao()
 })
 
 
@@ -426,3 +496,48 @@ document.querySelector("#cadastrarGuitarra").addEventListener("click",(e)=>{
 insertNewGuitar();
 
 console.log(localStorage.getItem("users"))
+
+
+document.querySelector("#alterarConta").addEventListener("click" ,()=>{
+    
+    document.querySelectorAll("#divDeVisu .ride").forEach((e)=>{
+        e.setAttribute("class" , "noRide")
+    })
+
+    document.querySelector("#alterarConta").setAttribute("class" , "ride");
+    document.querySelector("#backout").setAttribute("class" , "ride");
+})
+function sairDoModoDeEdicao(){
+    document.querySelectorAll("#divDeVisu .noRide").forEach((e)=>{
+        e.setAttribute("class" , "ride")
+    })
+
+    document.querySelector("#alterarConta").setAttribute("class" , "noRide");
+    document.querySelector("#backout").setAttribute("class" , "noRide");
+}
+document.querySelector("#sairDoAlterarConta").addEventListener("click", ()=>{
+   sairDoModoDeEdicao()
+   errorpassword.innerHTML = "";
+   
+})
+
+function mudamuda(){
+    var newName = document.querySelector("#name13").value;
+
+    if(newName!=null){
+        console.log(newName)
+    }
+}
+document.querySelector("#alterarContaTrue").addEventListener("click" , ()=>{
+    var confirmaSenha = document.querySelector("#confirmInput").value;
+    let uso = JSON.parse(localStorage.getItem("whUser"));
+    if(confirmaSenha === uso.password){
+        console.log("eu fui verificado")
+        errorpassword.innerHTML = "";
+        
+       
+    }else{
+        errorpassword.innerHTML = "informe a senha correta";
+    }
+})
+
