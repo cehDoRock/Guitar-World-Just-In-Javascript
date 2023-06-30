@@ -227,7 +227,7 @@ function criaElementos(e){
 
     cat.insertAdjacentElement("beforeend" , divProdutos)
 }
-console.log(arrayGuitars)
+
     if(localStorage.getItem("arrayGuitars")){
         arrayGuitars = JSON.parse(localStorage.getItem("arrayGuitars"));
     }
@@ -271,7 +271,8 @@ const user = {
     email: "",
     password: "",
     adress: "",
-    telphone: ""
+    telphone: "",
+    image:""
 };
 var password = document.querySelector("#passwordId")
 var senhafraca = document.querySelector("#senhafraca")
@@ -304,9 +305,18 @@ document.querySelector("#cad").addEventListener("click", (e)=>{
 
     
 
-    if(name!=""&&email!=""&&password.value!=""){
-
-        
+    if(name!=""&&email!=""&&password!=""&&adress!=""&&phone!=""){
+        var podeounao = true;
+        if(localStorage.getItem("users")){
+        var checkEmail = JSON.parse(localStorage.getItem("users"));
+   
+        checkEmail.forEach((e)=>{
+            if(e.email===email){
+                podeounao = false;
+            }
+        })
+    }
+        if(podeounao===true){
         criadaounao.setAttribute("class", "right");
     criadaounao.innerHTML = "Usuário criado com sucesso!"
     if(localStorage.getItem("users")){
@@ -321,6 +331,10 @@ document.querySelector("#cad").addEventListener("click", (e)=>{
     localStorage.setItem("users",JSON.stringify(users));
 }else{
     criadaounao.setAttribute("class", "wrong");
+    criadaounao.innerHTML = "Este email ja esta sendo usado!"
+}
+}else{
+    criadaounao.setAttribute("class", "wrong");
     criadaounao.innerHTML = "insira todas as informações corretamente para poder criar um novo usuario!"
 }
 });
@@ -331,7 +345,8 @@ var whUser = {
     email: "",
     password: "",
     adress: "",
-    telphone: ""
+    telphone: "",
+    image: ""
 }
 var userCad
 
@@ -343,6 +358,7 @@ if(userCad === true){
     um.setAttribute("class" , "ContsRegister")
     dois.setAttribute("class" , "ride");
     visu();
+    
 }else{
     um.setAttribute("class" , "ride")
     dois.setAttribute("class" , "ContsRegister");
@@ -393,7 +409,7 @@ document.querySelector("#ent").addEventListener("click", (e) => {
             }
             userCad = true;
             problens.innerHTML = "";
-            console.log(e.name)
+         
             ola.innerHTML = `Olá, ${e.name}!`
 
             localStorage.setItem("whUser",JSON.stringify(whUser));
@@ -419,8 +435,12 @@ document.querySelector("#controleDeDanos").addEventListener("click" , ()=> {
 document.querySelector("#backout").addEventListener("click" , (e)=>{
     e.preventDefault()
     whUser = {
-        name:"",
-        email: ""
+        name: "",
+        email: "",
+        password: "",
+        adress: "",
+        telphone: "",
+        image: ""
     }
     ola.innerHTML = "Cadastre-se"
     problens.innerHTML = "Insira Seus Cadastros"
@@ -467,7 +487,7 @@ document.querySelector("#cadastrarGuitarra").addEventListener("click",(e)=>{
     let marca = document.querySelector("#marcaguit").value;
     let imge = document.querySelector("#imgguit").value;
     
-    console.log(preco)
+
     if(name!=""&&preco!=""&&marca!=""&&imge!=""){
         p.setAttribute("class" , "right");
         p.innerHTML = "Inserido com Sucesso! ;)"
@@ -521,23 +541,66 @@ document.querySelector("#sairDoAlterarConta").addEventListener("click", ()=>{
    
 })
 
-function mudamuda(){
-    var newName = document.querySelector("#name13").value;
+// // 
+// var whUser = {
+//     name: "",
+//     email: "",
+//     password: "",
+//     adress: "",
+//     telphone: ""
+// }
 
-    if(newName!=null){
-        console.log(newName)
+
+// 
+
+function mudamuda(e){
+
+    var newName = document.querySelector("#name13").value;
+    var newPassword = document.querySelector("#password13").value;
+    var newAdress= document.querySelector("#adress13").value;
+    var newtelphone = document.querySelector("#phone13").value;
+
+    if(newName!=""){
+        e.name = newName;
+        whUser.name = newName
     }
+    if(newPassword!=""){
+        e.password = newPassword;
+        whUser.password = newPassword
+    }
+    if(newAdress!=""){
+        e.adress = newAdress;
+        whUser.adress = newAdress;
+    }
+    if(newtelphone!=""){
+        e.telphone = newtelphone;
+        whUser.telphone = newtelphone;
+    }
+    localStorage.setItem("users",JSON.stringify(users))
+    localStorage.setItem("whUser",JSON.stringify(whUser))
+   
 }
 document.querySelector("#alterarContaTrue").addEventListener("click" , ()=>{
     var confirmaSenha = document.querySelector("#confirmInput").value;
+    whUser = JSON.parse(localStorage.getItem("whUser"))
     let uso = JSON.parse(localStorage.getItem("whUser"));
     if(confirmaSenha === uso.password){
-        console.log("eu fui verificado")
+    
         errorpassword.innerHTML = "";
-        
-       
+
+       users = JSON.parse(localStorage.getItem("users"));
+       users.forEach((e)=>{
+            if(e.email===uso.email){
+                mudamuda(e)
+                visu()
+            }
+       })
+       console.log(JSON.parse(localStorage.getItem("users")))
     }else{
         errorpassword.innerHTML = "informe a senha correta";
     }
+   
+
 })
+
 
